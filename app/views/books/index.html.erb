@@ -23,7 +23,7 @@
         <td><%= "#{book.author}" %></td>
         <td><%= "#{book.isbn}" %></td>
         <td><%= "#{book.status}" %></td>
-        <td><%= "#{book.summary.truncate(10)}" %></td>
+        <td><%= "#{book.summary}".truncate(10) %></td>
         <td><%= "#{book.published}" %></td>
         <td><%= "#{book.modified}" %></td>
 
