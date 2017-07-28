@@ -3,7 +3,7 @@ class Book < ActiveRecord::Base
   validates :author, presence: true
   validates :isbn, presence: true
   validates :status, presence: true
-  validates :summary, presence: true
+  validates :summary, presence: true, length:{ maximum: 200}
   validates :published, presence: true
   validates :modified, presence: true
 end

@@ -48,4 +48,9 @@ class BookTest < ActiveSupport::TestCase
     @book.modified = ''
     assert_not @book.valid?
   end
+
+  test 'summary should be less than 200' do
+    @book.summary = 'a' * 201
+    assert_not @book.valid?
+  end
 end
