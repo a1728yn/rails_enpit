@@ -1,14 +1,39 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>タイトル</strong>
   <%= @book.title %>
 </p>
 
 <p>
-  <strong>Author:</strong>
+  <strong>作者</strong>
   <%= @book.author %>
 </p>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<p>
+  <strong>ISBNコード</strong>
+  <%= @book.isbn %>
+</p>
+
+<p>
+  <strong>貸出ステータス</strong>
+  <%= @book.status %>
+</p>
+
+<p>
+  <strong>要約</strong>
+  <%= @book.summary %>
+</p>
+
+<p>
+  <strong>出版日</strong>
+  <%= @book.published %>
+</p>
+
+<p>
+  <strong>改定日</strong>
+  <%= @book.modifiled %>
+</p>
+
+<%= link_to '編集', edit_book_path(@book) %> |
+<%= link_to '一覧', books_path %>
