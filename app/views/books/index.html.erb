@@ -11,7 +11,7 @@
       <th>貸出ステータス</th>
       <th>要約</th>
       <th>出版日</th>
-      <th>改定日</th>
+      <th>改訂日</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,8 +24,8 @@
         <td><%= "#{book.isbn}" %></td>
         <td><%= "#{book.status}" %></td>
         <td><%= "#{book.summary}".truncate(10) %></td>
-        <td><%= "#{book.published}" %></td>
-        <td><%= "#{book.modified}" %></td>
+        <td><%= "#{book.published.strftime('%Y-%m-%d')}" %></td>
+        <td><%= "#{book.modified.strftime('%Y-%m-%d')}" %></td>
 
         <td><%= link_to '詳細表示', book %></td>
         <td><%= link_to '編集', edit_book_path(book) %></td>
