@@ -1,13 +1,10 @@
 require 'test_helper'
 
 class BookTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
   def setup
-    @book = Book.new(title:'ABC', author:'Mr.John', isbn:'ISBN978-4-949999-13-7',
+    @book = Book.new(title:'ABC', author:'Mr.John', isbn:'123-4-5678-2222-3',
 			status:'available', summary:'this is summary',
-			published:'2015/04/20', modified:'2017/07/28')
+			published:'2015-04-20', modified:'2017-07-28')
   end
 
   test 'should be valid' do
@@ -49,8 +46,25 @@ class BookTest < ActiveSupport::TestCase
     assert_not @book.valid?
   end
 
+  test 'title should be less than 100' do
+    @book.title = 'a' * 101
+    assert_not @book.valid?
+  end
+
+  test 'author should be less than 100' do
+    @book.author = 'a' * 101
+    assert_not @book.valid?
+  end
+
+  test 'isbn should have - ' do
+    @book.isbn = '12345678901234567'
+    assert_not @book.valid?
+  end
+
   test 'summary should be less than 200' do
     @book.summary = 'a' * 201
     assert_not @book.valid?
   end
+
+
 end
