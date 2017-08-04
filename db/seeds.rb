@@ -6,15 +6,20 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+require date
+
 
 50.times do
+  from = Date.parse("2000/01/01")
+  to   = Date.parse("2000/12/31")
+
   title = Faker::Book.title
   author = Faker::Book.author
   isbn = "1-234-5678-9123-4"
   status = "on_loan"
   summary = Faker::Lorem.sentence
-  published = "2017-08-09"
-  modified = "2017-08-10"
+  published = Random.rand(from .. to)
+  modified = Random.rand(from .. to)
   
   Book.create(title: title, author: author, isbn: isbn, status: status, summary: summary, published: published, modified: modified)
 end 
