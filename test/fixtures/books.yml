@@ -3,17 +3,17 @@
 one:
   title: MyString
   author: MyString
-  isbn: ISBN978-4-949999-13-7
+  isbn: 1-234-5678-9012-3
   status: on_loan
   summary: summary
-  published: 2015/07/07
-  modified: 2017/07/28
+  published: 2015-07-07
+  modified: 2017-07-28
 
 two:
   title: MyString
   author: MyString
-  isbn: ISBN978-4-949999-13-7
+  isbn: 1-234-5678-9012-3
   status: on_loan
   summary: summary
-  published: 2015/07/07
-  modified: 2017/07/28
+  published: 2015-07-07
+  modified: 2017-07-28
