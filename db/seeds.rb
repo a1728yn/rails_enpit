@@ -8,20 +8,46 @@
 
 #require "date"
 
+def rand(i)
+  ans = ''
+  i.times do
+    ans += Random.rand(1..9).to_s    
+  end
+  return ans
+end
+
+def randomIsbn()
+  str = ''
+  str += rand(1)
+  str += '-'
+  str += rand(3)
+  str += '-'
+  str += rand(4)
+  str += '-'
+  str += rand(4)
+  str += '-'
+  str += rand(1)
+  return str
+end
+
+def getStatus()
+  temp = Random.rand(1..10)
+  if ( 7 > temp ) then
+    return 'lendable'
+  else
+    return 'on_loan'
+  end
+end
+
 
 50.times do
-#  from = Date.parse("2000/01/01")
-#  to   = Date.parse("2000/12/31")
-
   title = Faker::Book.title
   author = Faker::Book.author
-  isbn = "1-234-5678-9123-4"
-  status = "on_loan"
+  isbn = randomIsbn() 
+  status = getStatus()
   summary = Faker::Lorem.sentence
-#  published = Random.rand(from .. to)
-  published = "1990-08-09"
-#  modified = Random.rand(from .. to)
-  modified = "2017-08-09"
+  published = Faker::Time.between(20.years.ago, 5.years.ago, :all).to_s[0, 10]
+  modified = Faker::Time.between(4.years.ago, 0.years.ago, :all).to_s[0, 10]
   
   Book.create(title: title, author: author, isbn: isbn, status: status, summary: summary, published: published, modified: modified)
 end 
