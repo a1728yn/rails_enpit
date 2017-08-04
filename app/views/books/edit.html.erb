@@ -14,43 +14,40 @@
   <p id="notice"><%= notice %></p>
 
   <h1>本の貸出</h1>
-  <table>
+  <table class='talbe'>
     <tr>
-      <td>タイトル：</td><td><%= f.text_field :title, size: 50 %></td>
+      <td>タイトル：</td><td><%= f.text_field :title, size: 50, :class=>'form-control' %></td>
     </tr>
 
     <tr>
-      <td>作者：</td><td><%= f.text_field :author, size: 50 %></td>
+      <td>作者：</td><td><%= f.text_field :author, size: 50, :class=>'form-control' %></td>
     </tr>
 
     <tr>
-      <td>ISBNコード：</td><td><%= f.text_field :isbn, size: 17 %></td>
+      <td>ISBNコード：</td><td><%= f.text_field :isbn, size: 17, :class=>'form-control' %></td>
     </tr>
 
     <tr>
-      <td>要約：</td><td><%= f.text_area :summary, cols: 50, row: 4 %></td>
+      <td>要約：</td><td><%= f.text_area :summary, cols: 50, row: 4, :class=>'form-control' %></td>
     </tr>
 
     <tr>
-      <td>出版日：</td><td><%= f.text_field :published, size: 10 %></td>
+      <td>出版日：</td><td><%= f.text_field :published, size: 10, :class=>'form-control' %></td>
     </tr>
 
     <tr>
-      <td>改訂日：</td><td><%= f.text_field :modified, size: 10 %></td>
+      <td>改訂日：</td><td><%= f.text_field :modified, size: 10, :class=>'form-control' %></td>
     </tr>
 
     <tr>
       <td>貸出ステータス：</td><td><label><%= f.radio_button :status, 'lendable', class: :rb %>貸出可能</label>
       <label><%= f.radio_button :status, 'on_loan', class: :rb %>貸出中</label></td>
     </tr>
-
-    <tr>
-      <td>
-        <div class="actions">
-          <%= f.submit '確定', data: { confirm: '変更しますか？', disable_with: '処理中...' } %>
-        </div>
-      </td>
-    </tr>
   </table>
-  <%= link_to '一覧', books_path %>
+  <div class="actions">
+    <%= f.submit '確定', data: { confirm: '変更しますか？', disable_with: '処理中...' }, :class=>'btn btn-primary' %>
+  </div>
+  <ul class='pager'>
+    <li class='previous'><%= link_to '<< 一覧', books_path, :class=>'' %></li>
+  </ul>
 <% end %>
