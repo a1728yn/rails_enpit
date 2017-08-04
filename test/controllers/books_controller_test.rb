@@ -33,7 +33,7 @@ class BooksControllerTest < ActionController::TestCase
     get :edit, id: @book
     assert_response :success
     assert_select "h1", "本の貸出"
-    assert_select "table tr", 8
+    assert_select "table tr", 7
   end
 
   test "should update book" do
