@@ -16,37 +16,38 @@
   <h1>本の貸出</h1>
   <table class='talbe'>
     <tr>
-      <td>タイトル：</td><td><%= f.text_field :title, size: 50, :class=>'form-control' %></td>
+      <td class='col-xs-2 col-sm-2 col-md-2'><span class="glyphicon glyphicon-book" aria-hidden="true"></span><strong> タイトル</strong></td><td class='col-xs-10 col-sm-10 col-md-10'><%= f.text_field :title, size: 50, :class=>'form-control' %></td>
     </tr>
 
     <tr>
-      <td>作者：</td><td><%= f.text_field :author, size: 50, :class=>'form-control' %></td>
+      <td class='col-xs-2 col-sm-2 col-md-2'><span class="glyphicon glyphicon-user" aria-hidden="true"></span><strong> 作者</strong></td><td class='col-\
+xs-10 col-sm-10 col-md-10'><%= f.text_field :author, size: 50, :class=>'form-control' %></td>
     </tr>
 
     <tr>
-      <td>ISBNコード：</td><td><%= f.text_field :isbn, size: 17, :class=>'form-control' %></td>
+      <td class='col-xs-2 col-sm-2 col-md-2'><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span><strong> ISBNコード</strong></td><td class='col-xs-10 col-sm-10 col-md-10'><%= f.text_field :isbn, size: 17, :class=>'form-control' %></td>
     </tr>
 
     <tr>
-      <td>要約：</td><td><%= f.text_area :summary, cols: 50, row: 4, :class=>'form-control' %></td>
+      <td class='col-xs-2 col-sm-2 col-md-2'><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><strong> 要約</strong></td><td class='col-xs-10 col-sm-10 col-md-10'><%= f.text_area :summary, cols: 50, row: 4, :class=>'form-control' %></td>
     </tr>
 
     <tr>
-      <td>出版日：</td><td><%= f.text_field :published, size: 10, :class=>'form-control' %></td>
+      <td class='col-xs-2 col-sm-2 col-md-2'><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><strong> 出版日</strong></td><td class='col-xs-10 col-sm-10 col-md-10'><%= f.text_field :published, value: @book.published.strftime('%Y-%m-%d'), size: 10, :class=>'form-control' %></td>
     </tr>
 
     <tr>
-      <td>改訂日：</td><td><%= f.text_field :modified, size: 10, :class=>'form-control' %></td>
+      <td class='col-xs-2 col-sm-2 col-md-2'><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><strong> 改訂日</strong></td><td class='col-xs-10 col-sm-10 col-md-10'><%= f.text_field :modified, value: @book.modified.strftime('%Y-%m-%d'), size: 10, :class=>'form-control' %></td>
     </tr>
 
     <tr>
-      <td>貸出ステータス：</td><td><label><%= f.radio_button :status, 'lendable', class: :rb %>貸出可能</label>
+      <td class='col-xs-2 col-sm-2 col-md-2'><span class="glyphicon glyphicon-check" aria-hidden="true"></span><strong> 貸出ステータス</strong></td><td class='col-xs-10 col-sm-10 col-md-10'><label><%= f.radio_button :status, 'lendable', class: :rb %>貸出可能</label>
       <label><%= f.radio_button :status, 'on_loan', class: :rb %>貸出中</label></td>
     </tr>
   </table>
-  <div class="actions">
+  <p><div class="actions">
     <%= f.submit '確定', data: { confirm: '変更しますか？', disable_with: '処理中...' }, :class=>'btn btn-primary' %>
-  </div>
+  </div></p>
   <ul class='pager'>
     <li class='previous'><%= link_to '<< 一覧', books_path, :class=>'' %></li>
   </ul>
