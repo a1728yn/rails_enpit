@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require 'test_helper'
 
 class BooksControllerTest < ActionController::TestCase
@@ -27,6 +28,8 @@ class BooksControllerTest < ActionController::TestCase
   test "should show book" do
     get :show, id: @book
     assert_response :success
+    assert_select "h1", "本の詳細表示"
+    assert_select "table tr", 7
   end
 
   test "should get edit" do
