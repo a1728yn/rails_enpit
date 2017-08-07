@@ -1,39 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>タイトル</strong>
-  <%= @book.title %>
-</p>
+<h1>本の詳細表示</h1>
+<table class='table table-striped'>
+  <tr>
+    <td class='col-xs-2 col-sm-2 col-md-2'><span class="glyphicon glyphicon-book" aria-hidden="true"></span><strong> タイトル</strong></td><td class='col-xs-10 col-sm-10 col-md-10'><%= @book.title %></td>
+  </tr>
+  <tr>
+    <td class='col-xs-2 col-sm-2 col-md-2'><span class="glyphicon glyphicon-user" aria-hidden="true"></span><strong> 作者</strong></td><td class='col-xs-10 col-sm-10 col-md-10'><%= @book.author %></td>
+  </tr>
+  <tr>
+    <td class='col-xs-2 col-sm-2 col-md-2'><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span><strong> ISBNコード</strong></td><td class='col-xs-10 col-sm-10 col-md-10'><%= @book.isbn %></td>
+  </tr>
+  <tr>
+    <td class='col-xs-2 col-sm-2 col-md-2'><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span><strong> 要約</strong></td><td class='col-xs-10 col-sm-10 col-md-10'><%= @book.summary %></td>
+  </tr>
+  <tr>
+    <td class='col-xs-2 col-sm-2 col-md-2'><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><strong> 出版日</strong></td><td class='col-xs-10 col-sm-10 col-md-10'><%= @book.published.strftime('%Y-%m-%d') %></td>
+  </tr>
+  <tr>
+    <td class='col-xs-2 col-sm-2 col-md-2'><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><strong> 改訂日</strong></td><td class='col-xs-10 col-sm-10 col-md-10'><%= @book.modified.strftime('%Y-%m-%d') %></td>
+  </tr>
+  <tr>
+    <td class='col-xs-2 col-sm-2 col-md-2'><span class="glyphicon glyphicon-check" aria-hidden="true"></span><strong> 貸出ステータス</strong></td><td class='col-xs-10 col-sm-10 col-md-10'><%= @book.status=='lendable'?'貸出可能':'貸出中' %></td>
+  </tr>
+</table>
 
-<p>
-  <strong>作者</strong>
-  <%= @book.author %>
-</p>
-
-<p>
-  <strong>ISBNコード</strong>
-  <%= @book.isbn %>
-</p>
-
-<p>
-  <strong>貸出ステータス</strong>
-  <%= @book.status %>
-</p>
-
-<p>
-  <strong>要約</strong>
-  <%= @book.summary %>
-</p>
-
-<p>
-  <strong>出版日</strong>
-  <%= @book.published %>
-</p>
-
-<p>
-  <strong>改訂日</strong>
-  <%= @book.modified %>
-</p>
-
-<%= link_to '編集', edit_book_path(@book) %> |
-<%= link_to '一覧', books_path %>
+<ul class='pager'>
+  <li class='previous'><%= link_to '<< 一覧', books_path, :class=>'' %></li>
+  <li class='previous'><%= link_to '編集', edit_book_path(@book), :class=>'' %></li>
+</ul>
