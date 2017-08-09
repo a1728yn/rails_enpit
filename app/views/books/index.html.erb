@@ -2,7 +2,8 @@
 
 <h1>一覧画面</h1>
 
-<table>
+<%= link_to '本の追加', new_book_path, class: 'btn btn-primary' %>
+<table class='table table-striped'>
   <thead>
     <tr>
       <th>タイトル</th>
@@ -27,9 +28,9 @@
         <td><%= "#{book.published.strftime('%Y-%m-%d')}" %></td>
         <td><%= "#{book.modified.strftime('%Y-%m-%d')}" %></td>
 
-        <td><%= link_to '詳細表示', book %></td>
-        <td><%= link_to '編集', edit_book_path(book) %></td>
-        <td><%= link_to '削除', book, method: :delete, data: { confirm: 'よろしいですか?' } %></td>
+        <td><%= link_to '詳細表示', book, class: 'btn  btn-primary' %></td>
+        <td><%= link_to '編集', edit_book_path(book), class: 'btn  btn-primary' %></td>
+        <td><%= link_to '削除', book, class: 'btn  btn-primary', method: :delete, data: { confirm: 'よろしいですか?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -37,4 +38,3 @@
 
 <br>
 
-<%= link_to '本の追加', new_book_path %>
