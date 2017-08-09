@@ -1,5 +1,56 @@
-<h1>New Book</h1>
+<h1>BOOK　新規</h1>
+<%= form_for(@book) do |f| %>
+  <% if @book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
 
-<%= render 'form' %>
+      <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :タイトル %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :作者 %><br>
+    <%= f.text_field :author %>
+  </div>
+  <div class="field">
+    <%= f.label :isbnコード %><br>
+    <%= f.text_field :isbn %>
+  </div>
+  <div class="field">
+    <%= f.label :貸出ステータス %><br>
+    <label>
+    <%= f.radio_button :status, 'lendable', :checked=>true %>
+    貸出可能
+　　</label>
+    <label>
+    <%= f.radio_button :status, 'on_loan', class: :rb %>
+    貸出中
+    </label>
+  </div>
+  <div class="field">
+    <%= f.label :要約 %><br>
+    <%= f.text_field :summary %>
+  </div>
+  <div class="field">
+    <%= f.label :出版日 %><br>
+    <%= f.text_field :published %>
+  </div>
+  <div class="field">
+    <%= f.label :改定日 %><br>
+    <%= f.text_field :modified %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 
 <%= link_to 'Back', books_path %>
