@@ -21,7 +21,7 @@
     <%= f.text_field :author %>
   </div>
   <div class="field">
-    <%= f.label :isbnコード %><br>
+    <%= f.label :ISBNコード %><br>
     <%= f.text_field :isbn %>
   </div>
   <div class="field">
@@ -37,14 +37,14 @@
   </div>
   <div class="field">
     <%= f.label :要約 %><br>
-    <%= f.text_field :summary %>
+    <%= f.text_area :summary , cols: 50 %>
   </div>
   <div class="field">
     <%= f.label :出版日 %><br>
     <%= f.text_field :published %>
   </div>
   <div class="field">
-    <%= f.label :改定日 %><br>
+    <%= f.label :改訂日 %><br>
     <%= f.text_field :modified %>
   </div>
 
