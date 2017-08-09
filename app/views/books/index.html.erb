@@ -23,7 +23,7 @@
         <td><%= "#{book.title}" %></td>
         <td><%= "#{book.author}" %></td>
         <td><%= "#{book.isbn}" %></td>
-        <td><%= "#{book.status}" %></td>
+        <td><%= {'on_loan' => '貸出中', 'lendable' => '貸出可能'}[book.status] %></td>
         <td><%= "#{book.summary}".truncate(10) %></td>
         <td><%= "#{book.published.strftime('%Y-%m-%d')}" %></td>
         <td><%= "#{book.modified.strftime('%Y-%m-%d')}" %></td>
